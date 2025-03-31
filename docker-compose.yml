@@ -30,6 +30,8 @@ services:
     ports:
       - 9000:80
     restart: unless-stopped
+    environment:
+      - GRAPHQL_HOST=http://saleor-app-1guv7q-fdc1bb-65-2-144-248.traefik.me/graphql
 
   db:
     image: library/postgres:15-alpine
