@@ -32,6 +32,7 @@ services:
     restart: unless-stopped
     environment:
       - API_URL=http://saleor-app-1guv7q-fdc1bb-65-2-144-248.traefik.me/graphql/
+      - APP_MOUNT_URI=http://saleor-app-1guv7q-fdc1bb-65-2-144-248.traefik.me/dashboard/
 
   db:
     image: library/postgres:15-alpine
