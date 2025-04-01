@@ -23,7 +23,7 @@ services:
     environment:
       - JAEGER_AGENT_HOST=jaeger
       - DASHBOARD_URL=http://saleor-app-1guv7q-fdc1bb-65-2-144-248.traefik.me/
-      - ALLOWED_HOSTS=localhost,api,saleor-app-1guv7q-b774e6-65-2-144-248.traefik.me
+      - ALLOWED_HOSTS=localhost,api,saleor-app-1guv7q-b774e6-65-2-144-248.traefik.me,saleor-app-1guv7q-fdc1bb-65-2-144-248.traefik.me
 
   dashboard:
     image: ghcr.io/saleor/saleor-dashboard:latest
