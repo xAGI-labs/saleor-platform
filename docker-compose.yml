@@ -11,7 +11,7 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      - db
+      # - db
       - redis
       - jaeger
     volumes:
@@ -34,19 +34,19 @@ services:
       - API_URL=https://api.likeo.me/graphql/
       - APP_MOUNT_URI=/
 
-  db:
-    image: library/postgres:15-alpine
-    ports:
-      - 5432:5432
-    restart: unless-stopped
-    networks:
-      - saleor-backend-tier
-    volumes:
-      - saleor-db:/var/lib/postgresql/data
-      - ./replica_user.sql:/docker-entrypoint-initdb.d/replica_user.sql
-    environment:
-      - POSTGRES_USER=saleor
-      - POSTGRES_PASSWORD=saleor
+  # db:
+  #   image: library/postgres:15-alpine
+  #   ports:
+  #     - 5432:5432
+  #   restart: unless-stopped
+  #   networks:
+  #     - saleor-backend-tier
+  #   volumes:
+  #     - saleor-db:/var/lib/postgresql/data
+  #     - ./replica_user.sql:/docker-entrypoint-initdb.d/replica_user.sql
+  #   environment:
+  #     - POSTGRES_USER=saleor
+  #     - POSTGRES_PASSWORD=saleor
 
   redis:
     image: library/redis:7.0-alpine
@@ -101,8 +101,8 @@ services:
       - saleor-backend-tier
 
 volumes:
-  saleor-db:
-    driver: local
+  # saleor-db:
+  #   driver: local
   saleor-redis:
     driver: local
   saleor-media:
